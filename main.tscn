@@ -63,7 +63,7 @@ tile_set = SubResource("TileSet_h2yge")
 
 [node name="Level2" type="TileMapLayer" parent="." unique_id=1270383464]
 visible = false
-tile_map_data = PackedByteArray("AAAfAAQAAAAAAAAAAAAfAAUAAAAAAAAAAAAfAAYAAAAAAAAAAAAfAAcAAAAAAAAAAAAfAAgAAAAAAAAAAAAfAAkAAAAAAAAAAAAfAAoAAAAAAAAAAAAfAAsAAAAAAAAAAAAfAAwAAAAAAAAAAAAfAA0AAAAAAAAAAAAfAA4AAAAAAAAAAAAfAA8AAAAAAAAAAAAfABAAAAAAAAAAAAAfABEAAAAAAAAAAAAfABIAAAAAAAAAAAAfABMAAAAAAAAAAAAfABQAAAAAAAAAAAAfABUAAAAAAAAAAAAfABYAAAAAAAAAAAAfABcAAAAAAAAAAAAfABgAAAAAAAAAAAAfABkAAAAAAAAAAAAfABoAAAAAAAAAAAAfABsAAAAAAAAAAAAfABwAAAAAAAAAAAAfAB0AAAAAAAAAAAAfAB4AAAAAAAAAAAAfAB8AAAAAAAAAAAAfACAAAAAAAAAAAAAfACEAAAAAAAAAAAAfACIAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAJABkAAwAAAAAAAGAKABkAAwAAAAAAAGALABkAAwAAAAAAAGAMABkAAwAAAAAAAGANABkAAwAAAAAAAGAOABkAAwAAAAAAAGAPABkAAwAAAAAAAGAUACQAAwAAAAAAAFAVACQAAwAAAAAAAFAWACQAAwAAAAAAAFAhABAAAwAAAAAAAAAhABEAAwAAAAAAAAAhABIAAwAAAAAAAAAhABMAAwAAAAAAAAAhABQAAwAAAAAAAAAhABUAAwAAAAAAAAAhABYAAwAAAAAAAAAhABcAAwAAAAAAAAAhABgAAwAAAAAAAAAhABkAAwAAAAAAAAAhABoAAwAAAAAAAAAhABsAAwAAAAAAAAAbACQAAwAAAAAAAFAaACQAAwAAAAAAAFAZACQAAwAAAAAAAFAYACQAAwAAAAAAAFAXACQAAwAAAAAAAFAQABkAAwAAAAAAAGARABkAAwAAAAAAAGAcACQAAwAAAAAAAFA=")
 tile_set = SubResource("TileSet_h2yge")
 
 [node name="Level3" type="TileMapLayer" parent="." unique_id=40059508]
@@ -110,5 +110,6 @@ tile_set = SubResource("TileSet_h2yge")
 [connection signal="update_bounces" from="." to="hud" method="_on_main_update_bounces"]
 [connection signal="start_game" from="hud" to="." method="_on_hud_start_game"]
 [connection signal="bounced" from="Ball" to="hud" method="_on_ball_bounced"]
+[connection signal="start_over" from="Ball" to="." method="_on_ball_start_over"]
 [connection signal="body_entered" from="Finish" to="." method="_on_finish_body_entered"]
 [connection signal="body_entered" from="Finish" to="hud" method="_on_finish_body_entered"]

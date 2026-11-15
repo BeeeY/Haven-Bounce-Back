@@ -6,6 +6,7 @@ signal update_bounces
 
 var level = 1
 var already_called = false
+var bounces_for_level
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -68,3 +69,33 @@ func _on_finish_body_entered(body: Node2D) -> void:
 			next_level($Level8, $Level9, 10)
 		elif level == 10:
 			next_level($Level9, $Level10, 10)
+
+
+func _on_ball_start_over() -> void:
+		## resets ball
+	$Ball.velocity = Vector2.ZERO
+	$Ball.follow_mouse = true
+	$Ball.reset($Spawn.position,"arrow")
+	## resets bounces
+	if level == 2:
+				bounces_for_level = 3
+	elif level == 3:
+				bounces_for_level = 5
+	elif level == 4:
+				bounces_for_level = 5
+	elif level == 5:
+				bounces_for_level = 7
+	elif level == 6:
+				bounces_for_level = 7
+	elif level == 7:
+				bounces_for_level = 8
+	elif level == 8:
+				bounces_for_level = 9
+	elif level == 9:
+				bounces_for_level = 10
+	elif level == 10:
+		bounces_for_level = 10
+	$hud.bounces = bounces_for_level
+	$Ball.bounces = bounces_for_level
+	update_bounces.emit()
+	
