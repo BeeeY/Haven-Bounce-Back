@@ -8,6 +8,7 @@ var bounces = 0
 func _ready() -> void:
 	$Level.hide()
 	$LevelFinish.hide()
+	$LevelFinishBg.hide()
 	$Bounces.hide()
 
 
@@ -31,7 +32,12 @@ func _on_main_update_bounces() -> void:
 
 func _on_main_next() -> void:
 	level += 1
+	$LevelFinish.show()
+	$LevelFinishBg.show()
 	$Level.text = "Level " + str(level)
+	await get_tree().create_timer(1.0).timeout
+	$LevelFinish.hide()
+	$LevelFinishBg.hide()
 
 ## updates the bounces text
 func _on_ball_bounced() -> void:
