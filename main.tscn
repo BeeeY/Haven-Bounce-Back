@@ -3,11 +3,23 @@
 [ext_resource type="PackedScene" uid="uid://b2uxq2wy6hfro" path="res://hud.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dfmld2rd4q5sv" path="res://ball.tscn" id="2_h2yge"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glgfw"]
+size = Vector2(20, 646)
+
 [node name="main" type="Node2D" unique_id=432092584]
 
 [node name="hud" parent="." unique_id=535866903 instance=ExtResource("1_0xm2m")]
 visible = false
 
-[node name="Ball" parent="." unique_id=1289465530 instance=ExtResource("2_h2yge")]
+[node name="Ball" parent="." unique_id=1289465530 groups=["ball"] instance=ExtResource("2_h2yge")]
+position = Vector2(45, 509)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=374757119]
+
+[node name="Finish" type="Area2D" parent="." unique_id=286695119]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Finish" unique_id=2144903422]
+position = Vector2(-10, 323)
+shape = SubResource("RectangleShape2D_glgfw")
+
+[connection signal="body_entered" from="Finish" to="hud" method="_on_finish_body_entered"]

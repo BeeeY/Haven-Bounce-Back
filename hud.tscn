@@ -1,13 +1,37 @@
 [gd_scene format=3 uid="uid://b2uxq2wy6hfro"]
 
+[ext_resource type="Script" uid="uid://bnap4tn3h612i" path="res://hud.gd" id="1_64ctp"]
+[ext_resource type="Theme" uid="uid://b4oyvqpkp4oem" path="res://new_theme.tres" id="2_8sq4i"]
+
 [node name="hud" type="CanvasLayer" unique_id=535866903]
+script = ExtResource("1_64ctp")
+
+[node name="TitleBackground" type="Sprite2D" parent="." unique_id=1629111350]
 
 [node name="Title" type="Label" parent="." unique_id=725524607]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 208.0
+offset_top = 172.0
+offset_right = 899.0
+offset_bottom = 334.0
+theme = ExtResource("2_8sq4i")
 text = "Bounce Back!"
 
 [node name="StartButton" type="Button" parent="." unique_id=2142961355]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 502.0
+offset_top = 368.0
+offset_right = 604.0
+offset_bottom = 431.0
+theme = ExtResource("2_8sq4i")
 text = "Start"
+
+[node name="Level" type="Label" parent="." unique_id=1827367759]
+offset_left = 392.0
+offset_top = 7.0
+offset_right = 721.0
+offset_bottom = 90.0
+theme = ExtResource("2_8sq4i")
+theme_override_font_sizes/font_size = 75
+text = "Level 1"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
