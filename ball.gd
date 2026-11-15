@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
 signal start_over
+signal bounced
 
 @export var speed = 400
 var bounces = 0
+var bonces_for_level = 0
 var mouse_position
 var follow_mouse = true
 
@@ -26,6 +28,7 @@ func _physics_process(delta):
 	if collision:
 		velocity = velocity.bounce(collision.get_normal())
 		bounces -= 1
+		bounced.emit()
 			
 	if Input.is_action_just_pressed("click"):
 		follow_mouse = false
@@ -35,5 +38,6 @@ func _physics_process(delta):
 	if bounces < 0:
 		start_over.emit()
 	
-func spawn(pos):
+func reset(pos,animation):
 	position = pos
+	$BallSprite.animation = str(animation)

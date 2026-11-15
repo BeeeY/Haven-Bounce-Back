@@ -7,41 +7,56 @@
 script = ExtResource("1_64ctp")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=49640633]
-offset_right = 1171.0
-offset_bottom = 656.0
+offset_right = 651.0
+offset_bottom = 650.0
 color = Color(0.78431374, 0.77254903, 0.7607843, 1)
 
 [node name="TitleBackground" type="Sprite2D" parent="." unique_id=1629111350]
 
 [node name="Title" type="Label" parent="." unique_id=725524607]
-offset_left = 208.0
-offset_top = 172.0
-offset_right = 899.0
-offset_bottom = 334.0
+offset_left = 95.0
+offset_top = 267.0
+offset_right = 556.0
+offset_bottom = 375.0
 theme = ExtResource("2_8sq4i")
 text = "Bounce Back!"
+horizontal_alignment = 1
 
 [node name="StartButton" type="Button" parent="." unique_id=2142961355]
-offset_left = 502.0
-offset_top = 368.0
-offset_right = 604.0
-offset_bottom = 431.0
+offset_left = 268.0
+offset_top = 395.0
+offset_right = 370.0
+offset_bottom = 458.0
 theme = ExtResource("2_8sq4i")
 text = "Start"
 
 [node name="Level" type="Label" parent="." unique_id=1827367759]
-offset_left = 392.0
-offset_top = 7.0
-offset_right = 721.0
-offset_bottom = 90.0
+offset_left = 172.0
+offset_top = -6.0
+offset_right = 501.0
+offset_bottom = 77.0
 theme = ExtResource("2_8sq4i")
 theme_override_font_sizes/font_size = 75
 text = "Level 1"
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="." unique_id=707413732]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="Bounces" type="Label" parent="." unique_id=76670367]
+offset_left = 306.0
+offset_top = 49.0
+offset_right = 362.0
+offset_bottom = 125.0
+theme = ExtResource("2_8sq4i")
+theme_override_font_sizes/font_size = 70
+text = "0"
+horizontal_alignment = 1
+
+[node name="LevelFinish" type="Label" parent="." unique_id=707413732]
+offset_left = 128.0
+offset_top = 299.0
+offset_right = 520.0
+offset_bottom = 407.0
+theme = ExtResource("2_8sq4i")
 text = "Level Finish"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
