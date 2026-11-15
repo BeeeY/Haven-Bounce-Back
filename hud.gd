@@ -8,6 +8,8 @@ var bounces = 0
 func _ready() -> void:
 	$Level.hide()
 	$Bounces.hide()
+	$Thanks.hide()
+	$ColorRect.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -36,3 +38,10 @@ func _on_main_next() -> void:
 func _on_ball_bounced() -> void:
 	bounces -= 1
 	$Bounces.text = str(bounces)
+
+
+func _on_main_game_over() -> void:
+	$Level.hide()
+	$Bounces.hide()
+	$ColorRect.show()
+	$Thanks.show()

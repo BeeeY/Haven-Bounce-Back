@@ -2,7 +2,7 @@ extends Node2D
 
 signal next
 signal update_bounces
-
+signal game_over
 
 var level = 1
 var already_called = false
@@ -12,15 +12,13 @@ var bounces_for_level
 func _ready() -> void:
 	$hud.bounces = 1
 	$Ball.bounces = 1
+	$ColorRect.color = ("#F3E5AB")
 	update_bounces.emit()
 	
 	$Level2.collision_enabled = false
 	$Level3.collision_enabled = false
 	$Level4.collision_enabled = false
 	$Level5.collision_enabled = false
-	$Level6.collision_enabled = false
-	$Level7.collision_enabled = false
-	$Level8.collision_enabled = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -54,22 +52,18 @@ func _on_finish_body_entered(body: Node2D) -> void:
 		
 		if level == 2:
 			next_level($Level1, $Level2, 4)
+			$ColorRect.color = ('#D8BFD8')
 		elif level == 3:
 			next_level($Level2, $Level3, 3)
+			$ColorRect.color = ("#FFCBA4")
 		elif level == 4:
 			next_level($Level3, $Level4, 3)
+			$ColorRect.color = ("#9BB7E8")
 		elif level == 5:
 			next_level($Level4, $Level5, 1)
+			$ColorRect.color = ("#F7CAC9")
 		elif level == 6:
-			next_level($Level5, $Level6, 7)
-		elif level == 7:
-			next_level($Level6, $Level7, 8)
-		elif level == 8:
-			next_level($Level7, $Level8, 9)
-		elif level == 9:
-			next_level($Level8, $Level9, 10)
-		elif level == 10:
-			next_level($Level9, $Level10, 10)
+			game_over.emit()
 
 
 func _on_ball_start_over() -> void:
@@ -88,16 +82,6 @@ func _on_ball_start_over() -> void:
 		bounces_for_level = 3
 	elif level == 5:
 		bounces_for_level = 1
-	elif level == 6:
-		bounces_for_level = 7
-	elif level == 7:
-		bounces_for_level = 8
-	elif level == 8:
-		bounces_for_level = 9
-	elif level == 9:
-		bounces_for_level = 10
-	elif level == 10:
-		bounces_for_level = 10
 	$hud.bounces = bounces_for_level
 	$Ball.bounces = bounces_for_level
 	update_bounces.emit()
