@@ -2,32 +2,43 @@
 
 [ext_resource type="Script" uid="uid://bnap4tn3h612i" path="res://hud.gd" id="1_64ctp"]
 [ext_resource type="Theme" uid="uid://b4oyvqpkp4oem" path="res://new_theme.tres" id="2_8sq4i"]
+[ext_resource type="Texture2D" uid="uid://c0s8ixnqh8i5n" path="res://assets/title screen.png" id="2_640wx"]
 
 [node name="hud" type="CanvasLayer" unique_id=535866903]
 script = ExtResource("1_64ctp")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=49640633]
-offset_right = 651.0
-offset_bottom = 650.0
-color = Color(0.78431374, 0.77254903, 0.7607843, 1)
-
 [node name="TitleBackground" type="Sprite2D" parent="." unique_id=1629111350]
+position = Vector2(324, 323.99997)
+scale = Vector2(2, 1.9999999)
+texture = ExtResource("2_640wx")
 
 [node name="Title" type="Label" parent="." unique_id=725524607]
-offset_left = 95.0
-offset_top = 267.0
-offset_right = 556.0
-offset_bottom = 375.0
+offset_left = 67.0
+offset_top = 138.0
+offset_right = 758.0
+offset_bottom = 300.0
 theme = ExtResource("2_8sq4i")
-text = "Bounce Back!"
+theme_override_font_sizes/font_size = 150
+text = "Bounce"
+horizontal_alignment = 1
+
+[node name="Title2" type="Label" parent="." unique_id=734676502]
+offset_left = 90.0
+offset_top = 269.0
+offset_right = 781.0
+offset_bottom = 431.0
+theme = ExtResource("2_8sq4i")
+theme_override_font_sizes/font_size = 150
+text = " Back!"
 horizontal_alignment = 1
 
 [node name="StartButton" type="Button" parent="." unique_id=2142961355]
-offset_left = 268.0
-offset_top = 395.0
-offset_right = 370.0
-offset_bottom = 458.0
+offset_left = 121.0
+offset_top = 470.0
+offset_right = 385.0
+offset_bottom = 586.0
 theme = ExtResource("2_8sq4i")
+theme_override_font_sizes/font_size = 100
 text = "Start"
 
 [node name="Level" type="Label" parent="." unique_id=1827367759]
@@ -48,22 +59,6 @@ offset_bottom = 125.0
 theme = ExtResource("2_8sq4i")
 theme_override_font_sizes/font_size = 70
 text = "0"
-horizontal_alignment = 1
-
-[node name="LevelFinishBg" type="ColorRect" parent="." unique_id=1652362826]
-offset_left = 106.0
-offset_top = 290.0
-offset_right = 522.0
-offset_bottom = 384.0
-color = Color(1, 0.40392157, 0.023529412, 0.4862745)
-
-[node name="LevelFinish" type="Label" parent="." unique_id=707413732]
-offset_left = 119.0
-offset_top = 281.0
-offset_right = 510.0
-offset_bottom = 389.0
-theme = ExtResource("2_8sq4i")
-text = "Level Finish"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

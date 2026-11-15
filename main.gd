@@ -11,6 +11,7 @@ var bounces_for_level
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$hud.bounces = 1
+	$Ball.bounces = 1
 	update_bounces.emit()
 	
 	$Level2.collision_enabled = false
@@ -52,13 +53,13 @@ func _on_finish_body_entered(body: Node2D) -> void:
 		next.emit()
 		
 		if level == 2:
-			next_level($Level1, $Level2, 3)
+			next_level($Level1, $Level2, 4)
 		elif level == 3:
-			next_level($Level2, $Level3, 5)
+			next_level($Level2, $Level3, 3)
 		elif level == 4:
-			next_level($Level3, $Level4, 5)
+			next_level($Level3, $Level4, 3)
 		elif level == 5:
-			next_level($Level4, $Level5, 7)
+			next_level($Level4, $Level5, 1)
 		elif level == 6:
 			next_level($Level5, $Level6, 7)
 		elif level == 7:
@@ -77,25 +78,39 @@ func _on_ball_start_over() -> void:
 	$Ball.follow_mouse = true
 	$Ball.reset($Spawn.position,"arrow")
 	## resets bounces
-	if level == 2:
-				bounces_for_level = 3
+	if level == 1:
+		bounces_for_level = 1
+	elif level == 2:
+		bounces_for_level = 4
 	elif level == 3:
-				bounces_for_level = 5
+		bounces_for_level = 3
 	elif level == 4:
-				bounces_for_level = 5
+		bounces_for_level = 3
 	elif level == 5:
-				bounces_for_level = 7
+		bounces_for_level = 1
 	elif level == 6:
-				bounces_for_level = 7
+		bounces_for_level = 7
 	elif level == 7:
-				bounces_for_level = 8
+		bounces_for_level = 8
 	elif level == 8:
-				bounces_for_level = 9
+		bounces_for_level = 9
 	elif level == 9:
-				bounces_for_level = 10
+		bounces_for_level = 10
 	elif level == 10:
 		bounces_for_level = 10
 	$hud.bounces = bounces_for_level
 	$Ball.bounces = bounces_for_level
 	update_bounces.emit()
 	
+func _on_area_2d_body_entered(body: Node2D) -> void:
+		if body.is_in_group("ball"):
+			_on_ball_start_over()
+func _on_area_2d_2_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+		if body.is_in_group("ball"):
+			_on_ball_start_over()
+func _on_area_2d_3_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+		if body.is_in_group("ball"):
+			_on_ball_start_over()
+func _on_area_2d_4_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+		if body.is_in_group("ball"):
+			_on_ball_start_over()
