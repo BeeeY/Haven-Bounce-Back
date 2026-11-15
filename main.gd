@@ -12,7 +12,6 @@ var bounces_for_level
 func _ready() -> void:
 	$hud.bounces = 1
 	$Ball.bounces = 1
-	$ColorRect.color = ("#F3E5AB")
 	update_bounces.emit()
 	
 	$Level2.collision_enabled = false
@@ -98,3 +97,7 @@ func _on_area_2d_3_body_shape_entered(body_rid: RID, body: Node2D, body_shape_in
 func _on_area_2d_4_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 		if body.is_in_group("ball"):
 			_on_ball_start_over()
+
+
+func _on_ball_bounced() -> void:
+	$AudioStreamPlayer2.play()

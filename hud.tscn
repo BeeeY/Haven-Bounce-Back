@@ -62,15 +62,15 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=525834925]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 648.0
+offset_bottom = 648.0
 color = Color(0.78352344, 0.7835234, 0.7835234, 1)
 
 [node name="Thanks" type="Label" parent="." unique_id=2100685584]
-offset_left = 3.0
-offset_top = 214.0
-offset_right = 657.0
-offset_bottom = 489.0
+offset_left = 7.0
+offset_top = 193.0
+offset_right = 661.0
+offset_bottom = 468.0
 theme = ExtResource("2_8sq4i")
 theme_override_font_sizes/font_size = 126
 text = "Thanks for 
