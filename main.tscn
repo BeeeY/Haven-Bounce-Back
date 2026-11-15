@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ct0ym6feoe74f"]
+
+[ext_resource type="PackedScene" uid="uid://b2uxq2wy6hfro" path="res://hud.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://dfmld2rd4q5sv" path="res://ball.tscn" id="2_h2yge"]
+
+[node name="main" type="Node2D" unique_id=432092584]
+
+[node name="hud" parent="." unique_id=535866903 instance=ExtResource("1_0xm2m")]
+visible = false
+
+[node name="Ball" parent="." unique_id=1289465530 instance=ExtResource("2_h2yge")]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=374757119]

@@ -40,14 +40,6 @@ func _physics_process(delta):
 				wall_point.emit()
 
 
-func _on_score_area_1_body_entered(body: Node2D) -> void:
-	start()
-
-func _on_score_area_2_body_entered(body: Node2D) -> void:
-	if wall_game == false:
-		start()
-
-
 func _on_main_wall() -> void:
 	wall_game = true
 
